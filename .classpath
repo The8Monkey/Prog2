@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/lib-tree/lernhilfe2015ss-tree-01.jar" sourcepath="lib/lib-tree/lernhilfe2015ss-tree-01.jar"/>
+	<classpathentry kind="lib" path="lib/schimkat-lernhilfe2015ss-ev.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
