@@ -1,22 +1,16 @@
 
 package a08;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Point;
+import schimkat.berlin.lernhilfe2015ss.DIRTY.graphics.Drawable;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.geom.Line2D;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-import javax.swing.JPanel;
-
-import schimkat.berlin.lernhilfe2015ss.DIRTY.graphics.Drawable;
-
 public class SmileyView extends JPanel implements Drawable, PropertyChangeListener {
 	protected SmileyModel model;
-	private static final long serialVersionUID = 1L;
 	protected Point start;
 	protected int radius;
 	protected double eyeRad;
@@ -51,7 +45,7 @@ public class SmileyView extends JPanel implements Drawable, PropertyChangeListen
 			g.fillPolygon(gu.mouthXPoints(), gu.mouthYPoints(), nPoints);
 		}else{
 			Graphics2D g2 = (Graphics2D) g;
-            g2.setStroke(new BasicStroke(8));
+            g2.setStroke(new BasicStroke(10));
             g2.draw(new Line2D.Float((int)gu.mouthAnfang().getX(), (int)gu.mouthAnfang().getY(), (int)gu.mouthEnde().getX(), (int)gu.mouthEnde().getY()));
 		}
 		
@@ -89,7 +83,7 @@ public class SmileyView extends JPanel implements Drawable, PropertyChangeListen
 		g.fillOval(p.x, p.y, 2*radius, 2*radius);
 	}
 	
-	class GeoUtil{
+	private class GeoUtil{
 		private GeoUtil() {
 			super();
 		}
