@@ -30,11 +30,9 @@ public class SmileyView extends JPanel implements Drawable, PropertyChangeListen
 	
 	public void draw(Graphics g) {
 		GeoUtil gu = new GeoUtil();
-		Point leftEye = gu.leftEye();
-		Point rightEye = gu.rightEye();
-		drawHead(g,model.getStart());
-		drawLeftEye(g,leftEye, gu);
-		drawRightEye(g,rightEye, gu);
+		drawHead(g,start);
+		drawLeftEye(g, gu);
+		drawRightEye(g, gu);
 		drawMouth(g,gu);
 	}
 
@@ -51,7 +49,8 @@ public class SmileyView extends JPanel implements Drawable, PropertyChangeListen
 		
 	}
 
-	private void drawRightEye(Graphics g, Point p, GeoUtil gu) {
+	private void drawRightEye(Graphics g, GeoUtil gu) {
+		Point p  = gu.rightEye();
 		g.setColor(Color.BLACK);
 		g.fillOval(p.x, p.y, (int)(eyeRad), (int)(eyeRad));
 		drawrightPupil(g, p, gu);
@@ -64,10 +63,10 @@ public class SmileyView extends JPanel implements Drawable, PropertyChangeListen
 		g.fillOval(rightPupil.x+rightEyeMiddle.x,rightPupil.y+rightEyeMiddle.y, (int)(4*eyeRad/10), (int)(4*eyeRad/10));
 	}
 
-	private void drawLeftEye(Graphics g, Point p, GeoUtil gu) {
+	private void drawLeftEye(Graphics g, GeoUtil gu) {
+		Point p  = gu.leftEye();
 		g.setColor(Color.BLACK);
 		g.fillOval(p.x, p.y, (int)(eyeRad), (int)(eyeRad));
-		
 		drawLeftPupil(g,p, gu);
 	}
 

@@ -21,7 +21,7 @@ public class SmileyTest {
 					continue;
 				}
 				test.setSmile(true);
-//				test.setSize(radius+=20);
+				test.setSize(radius+=20);
 			}
 			dp.showDrawingAfterWaiting(0);
 		}
