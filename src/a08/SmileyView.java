@@ -1,15 +1,18 @@
 
 package a08;
 
+import schimkat.berlin.lernhilfe2015ss.DIRTY.graphics.DirtyPainter;
 import schimkat.berlin.lernhilfe2015ss.DIRTY.graphics.Drawable;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.geom.Line2D;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 public class SmileyView extends JPanel implements Drawable, PropertyChangeListener {
+	protected DirtyPainter dp;
 	protected SmileyModel model;
 	protected Point start;
 	protected int radius;
@@ -18,6 +21,8 @@ public class SmileyView extends JPanel implements Drawable, PropertyChangeListen
 	protected boolean smile;
 	
 	public SmileyView(SmileyModel model) {
+		dp = new DirtyPainter();
+		dp.add(this);
 		this.model = model;
 		start = model.getStart();
 		radius=model.getRadius();
@@ -133,7 +138,7 @@ public class SmileyView extends JPanel implements Drawable, PropertyChangeListen
 			eyeRad = model.getEyeRad();
 			eyeAngel = model.getEyeAngel();
 			smile = model.isSmile();
-			repaint();
+			dp.showDrawingAfterWaiting(1);;
 		}
 	}
 }
