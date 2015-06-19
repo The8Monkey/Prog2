@@ -88,11 +88,7 @@ public class SmileyModel{
 	}
 	
 	public void changeSmile(){
-		if(smile){
-			setSmile(false);
-		}else{
-			setSmile(true);
-		}
+		smile = !smile;
 	}
 	public void addPropertyChangeListener(PropertyChangeListener l) {
         pcs.addPropertyChangeListener(l);
