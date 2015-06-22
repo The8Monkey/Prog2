@@ -54,37 +54,42 @@ public class SmileyModel{
 	}
 	
 	public void setSize(int size) {
-		pcs.firePropertyChange(MODEL_UPDATED, radius, size/2);
+        int oldRadius = this.radius;
 		radius = size/2;
 		setEyeRad(radius * 0.75);
-		
+        pcs.firePropertyChange(MODEL_UPDATED, oldRadius, size/2);
 	}
 
 	public void setEyeRad(double eyeRad) {
-		pcs.firePropertyChange(MODEL_UPDATED, this.eyeRad, eyeRad);
+        double oldRad = this.eyeRad;
 		this.eyeRad = eyeRad;
+        pcs.firePropertyChange(MODEL_UPDATED, oldRad, eyeRad);
 	}
 
 	public void rotateEye(double eyeAngel) {
-		pcs.firePropertyChange(MODEL_UPDATED, this.eyeAngel, eyeAngel);
+        double oldAngel = this.getEyeAngel();
 		this.eyeAngel = eyeAngel;
+        pcs.firePropertyChange(MODEL_UPDATED, oldAngel, eyeAngel);
 	}
 
 	public void setSmile(boolean smile) {
-		pcs.firePropertyChange(MODEL_UPDATED, this.smile, smile);
-		this.smile = smile;
+		boolean oldSmile = this.smile;
+        this.smile = smile;
+		pcs.firePropertyChange(MODEL_UPDATED, oldSmile, smile);
 	}
 	
 	public void moveRelative(int dx, int dy){
-		pcs.firePropertyChange(MODEL_UPDATED, start.x+start.y, dx+dy);
-		start.x += dx;
+		int oldValue=start.x+start.y;
+        start.x += dx;
 		start.y += dy;
+        pcs.firePropertyChange(MODEL_UPDATED, oldValue, dx+dy);
 	}
 	
 	public void setPosition(int x, int y){
-		pcs.firePropertyChange(MODEL_UPDATED, start.x+start.y, x+y);
-		start.x = x;
+		int oldValue = start.x+start.y;
+        start.x = x;
 		start.y = y;
+        pcs.firePropertyChange(MODEL_UPDATED, oldValue, x+y);
 	}
 	
 	public void changeSmile(){

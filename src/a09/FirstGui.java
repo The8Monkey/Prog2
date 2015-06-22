@@ -11,6 +11,7 @@ public class FirstGui {
         int radius=500;
         SmileyModel test = new SmileyModel(radius, true);
         FirstSmileyPanel view = new FirstSmileyPanel(test);
+        AAPCEventPrinter ep = new AAPCEventPrinter(test);
         JFrame frame = new JFrame("Smiley of DOOM!!!");
         Container container = frame.getContentPane();
         container.add(view);
@@ -30,7 +31,7 @@ public class FirstGui {
                 //test.setSize(radius+=20);
             }
             try {
-                TimeUnit.MILLISECONDS.sleep(20);
+                TimeUnit.MILLISECONDS.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
