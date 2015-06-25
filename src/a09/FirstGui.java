@@ -11,7 +11,8 @@ public class FirstGui {
         int radius=500;
         SmileyModel test = new SmileyModel(radius, true);
         FirstSmileyPanel view = new FirstSmileyPanel(test);
-        AAPCEventPrinter ep = new AAPCEventPrinter(test);
+        AAPCEventPrinter ep = new AAPCEventPrinter();
+        test.addPropertyChangeListener(ep);
         JFrame frame = new JFrame("Smiley of DOOM!!!");
         Container container = frame.getContentPane();
         container.add(view);
@@ -23,10 +24,7 @@ public class FirstGui {
             test.rotateEye(i);
             i+=10;
             if(i%90==0){
-                if(test.isSmile()){
-                    test.setSmile(false);
-                    continue;
-                }
+                test.changeSmile();
                 test.setSmile(true);
                 //test.setSize(radius+=20);
             }

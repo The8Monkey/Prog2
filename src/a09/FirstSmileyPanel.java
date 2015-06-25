@@ -136,5 +136,4 @@ public class FirstSmileyPanel extends JPanel implements PropertyChangeListener{
             repaint();
         }
     }
-
 }
