@@ -1,4 +1,4 @@
-package a09;
+package a10;
 
 import a08.SmileyModel;
 
@@ -8,15 +8,16 @@ import java.awt.geom.Line2D;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-public class FirstSmileyPanel extends JPanel implements PropertyChangeListener{
+public class View extends JPanel implements PropertyChangeListener{
     protected SmileyModel model;
     protected Point start;
     protected int radius;
     protected double eyeRad;
     protected double  eyeAngel;
     protected boolean smile;
+    protected boolean rollRight;
 
-    public FirstSmileyPanel(SmileyModel model) {
+    public View(SmileyModel model) {
         this.model = model;
         start = model.getStart();
         radius=model.getRadius();
@@ -58,7 +59,12 @@ public class FirstSmileyPanel extends JPanel implements PropertyChangeListener{
 
     private void drawrightPupil(Graphics g, Point p, GeoUtil gu) {
         Point rightEyeMiddle = gu.pupilMiddle(p);
-        Point rightPupil = gu.turnPupil();
+        Point rightPupil;
+        if(rollRight){
+            rightPupil = gu.turnPupil();
+        }else{
+            rightPupil = gu.turnPupilRevers();
+        }
         g.setColor(Color.RED);
         g.fillOval(rightPupil.x+rightEyeMiddle.x,rightPupil.y+rightEyeMiddle.y, (int)(4*eyeRad/10), (int)(4*eyeRad/10));
     }
@@ -72,7 +78,12 @@ public class FirstSmileyPanel extends JPanel implements PropertyChangeListener{
 
     private void drawLeftPupil(Graphics g, Point p, GeoUtil gu) {
         Point leftEyeMiddle = new Point((int)(p.x+eyeRad/4),(int)(p.y+eyeRad/4));
-        Point leftPupil = gu.turnPupilRevers();
+        Point leftPupil;
+        if(rollRight){
+            leftPupil = gu.turnPupil();
+        }else{
+            leftPupil = gu.turnPupilRevers();
+        }
         g.setColor(Color.RED);
         g.fillOval(leftPupil.x+leftEyeMiddle.x, leftPupil.y+leftEyeMiddle.y, (int)(4*eyeRad/10), (int)(4*eyeRad/10));
     }
@@ -133,6 +144,7 @@ public class FirstSmileyPanel extends JPanel implements PropertyChangeListener{
             eyeRad = model.getEyeRad();
             eyeAngel = model.getEyeAngel();
             smile = model.isSmile();
+            rollRight = model.getRoll();
             repaint();
         }
     }

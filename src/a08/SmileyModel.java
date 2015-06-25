@@ -11,7 +11,8 @@ public class SmileyModel{
 	protected boolean smile;
 	protected Point start;
 	protected final PropertyChangeSupport pcs;
-	protected final String MODEL_UPDATED;	
+	protected final String MODEL_UPDATED;
+    protected boolean roll;
 
 	public SmileyModel(int size, boolean smile){
 		this.radius=size/2;
@@ -20,6 +21,7 @@ public class SmileyModel{
 		this.smile=smile;
 		this.start = new Point(20,20);
 		this.pcs = new PropertyChangeSupport(this);
+        roll=true;
 		MODEL_UPDATED = "MODEL_UPDATED";
 	}
 	
@@ -59,6 +61,9 @@ public class SmileyModel{
 		setEyeRad(radius * 0.75);
         pcs.firePropertyChange(MODEL_UPDATED, oldRadius, size/2);
 	}
+    public void setRoll(boolean roll){
+        this.roll=roll;
+    }
 
 	public void setEyeRad(double eyeRad) {
         double oldRad = this.eyeRad;
@@ -101,5 +106,9 @@ public class SmileyModel{
 
     public void removePropertyChangeListener(PropertyChangeListener l) {
         pcs.removePropertyChangeListener(l);
+    }
+
+    public boolean getRoll() {
+        return roll;
     }
 }
