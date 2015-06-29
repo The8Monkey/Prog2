@@ -124,16 +124,14 @@ public class View extends JPanel implements PropertyChangeListener{
         private int[] mouthXPoints(){
             Point pAnfang= mouthAnfang();
             Point pEnde=mouthEnde();
-            int[] xPoints={pAnfang.x,(int)(pAnfang.x+(pEnde.x-pAnfang.x)/6),(int)(pAnfang.x+(pEnde.x-pAnfang.x)/4)+6,
+            return new int[]{pAnfang.x,(int)(pAnfang.x+(pEnde.x-pAnfang.x)/6),(int)(pAnfang.x+(pEnde.x-pAnfang.x)/4)+6,
                     (int)(pAnfang.x+(pEnde.x-pAnfang.x)/2),(int)(pEnde.x-(pEnde.x-pAnfang.x)/4)-6,(int)(pEnde.x-(pEnde.x-pAnfang.x)/6),pEnde.x};
-            return xPoints;
         }
         private int[] mouthYPoints(){
             Point pAnfang= mouthAnfang();
             Point pEnde=mouthEnde();
-            int[] yPoints={pAnfang.y,(int)(pEnde.y+eyeRad/3),(int)(pEnde.y+eyeRad/2),(int)(pEnde.y+eyeRad/2),
+            return new int[]{pAnfang.y,(int)(pEnde.y+eyeRad/3),(int)(pEnde.y+eyeRad/2),(int)(pEnde.y+eyeRad/2),
                     (int)(pEnde.y+eyeRad/2),(int)(pEnde.y+eyeRad/3),pEnde.y};
-            return yPoints;
         }
     }
 
