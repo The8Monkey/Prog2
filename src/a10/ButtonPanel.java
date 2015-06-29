@@ -68,6 +68,5 @@ public class ButtonPanel extends JPanel{
         add(smile);
         add(happy);
         add(sad);
-
     }
 }
