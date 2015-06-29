@@ -25,7 +25,7 @@ public class SmileyModel {
     }
 
     public SmileyModel(){
-        this(0, 0, 150, 90, false, true);
+        this(0, 0, 150, 90, true, false);
     }
 
     //___________GETTER_________________
