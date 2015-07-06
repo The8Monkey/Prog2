@@ -58,7 +58,7 @@ public class View extends JPanel implements PropertyChangeListener{
     }
 
     private void drawrightPupil(Graphics g, Point p, GeoUtil gu) {
-        Point rightEyeMiddle = gu.pupilMiddle(p);
+        Point rightEyeMiddle = gu.pupilMiddle(p);//new Point((int)(p.x+eyeRad/2),(int)(p.y+eyeRad/2));
         Point rightPupil;
         if(rollRight){
             rightPupil = gu.turnPupil();
@@ -67,6 +67,9 @@ public class View extends JPanel implements PropertyChangeListener{
         }
         g.setColor(Color.RED);
         g.fillOval(rightPupil.x+rightEyeMiddle.x,rightPupil.y+rightEyeMiddle.y, (int)(4*eyeRad/10), (int)(4*eyeRad/10));
+        //Graphics2D g2 =(Graphics2D) g;
+        //g2.fillOval(rightEyeMiddle.x, rightEyeMiddle.y, (int)(4*eyeRad/10), (int)(4*eyeRad/10));
+        //g2.rotate(eyeAngel, rightEyeMiddle.x, rightEyeMiddle.y);
     }
 
     private void drawLeftEye(Graphics g, GeoUtil gu) {
@@ -77,7 +80,7 @@ public class View extends JPanel implements PropertyChangeListener{
     }
 
     private void drawLeftPupil(Graphics g, Point p, GeoUtil gu) {
-        Point leftEyeMiddle = new Point((int)(p.x+eyeRad/4),(int)(p.y+eyeRad/4));
+        Point leftEyeMiddle = gu.pupilMiddle(p);//new Point((int)(p.x+eyeRad/2),(int)(p.y+eyeRad/2));
         Point leftPupil;
         if(rollRight){
             leftPupil = gu.turnPupil();
@@ -86,6 +89,9 @@ public class View extends JPanel implements PropertyChangeListener{
         }
         g.setColor(Color.RED);
         g.fillOval(leftPupil.x+leftEyeMiddle.x, leftPupil.y+leftEyeMiddle.y, (int)(4*eyeRad/10), (int)(4*eyeRad/10));
+        //Graphics2D g2 =(Graphics2D) g;
+        //g2.fillOval(leftEyeMiddle.x, leftEyeMiddle.y, (int)(4*eyeRad/10), (int)(4*eyeRad/10));
+        //g2.rotate(eyeAngel, leftEyeMiddle.x, leftEyeMiddle.y);
     }
 
     private void drawHead(Graphics g, Point p) {

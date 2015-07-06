@@ -15,7 +15,10 @@ public class SmileyModel{
     protected boolean roll;
 
 	public SmileyModel(int size, boolean smile){
-		this.radius=size/2;
+		if(size < 300){
+            size=300;
+        }
+        this.radius=size/2;
 		eyeRad = radius * 0.75;
 		this.eyeAngel = 0;
 		this.smile=smile;

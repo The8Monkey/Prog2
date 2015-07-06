@@ -2,13 +2,17 @@ package a10;
 
 import a08.SmileyModel;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Controler implements ActionListener{
     protected static boolean rollright;
-    SmileyModel model;
-    double eyeSize;
+    protected SmileyModel model;
+    protected double eyeSize;
+    protected JTextField jtf;
+    protected String text;
+    protected int number;
     public Controler(SmileyModel model){
         this.model=model;
         eyeSize=model.getEyeRad();
@@ -18,7 +22,24 @@ public class Controler implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case Commands.KOPFRADIUS_CHANGE:
-                System.out.println(e.getSource());
+                jtf= (JTextField) e.getSource();
+                text = jtf.getText();
+                if (text.isEmpty()){
+                    model.setSize(model.getRadius()*2);
+                }
+                try {
+                    number = Integer.parseInt(text);
+                }catch (NumberFormatException ex){
+                    ex.printStackTrace();
+                    number = 0;
+                    break;
+                }
+                if(number < 150 || number >2000){
+                    model.setSize(model.getRadius()*2);
+                }else{
+                    model.setSize(number*2);
+                }
+                eyeSize=model.getEyeRad();
                 break;
             case Commands.AUGENROLLEN_RECHTS:
                 rollright=true;

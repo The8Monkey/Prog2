@@ -13,7 +13,7 @@ public class ButtonPanel extends JPanel{
     protected JButton happy;
     protected JButton sad;
 
-    public ButtonPanel(Controler controler){
+    public ButtonPanel(Controler controler, EventPrinter ep){
         label = new JLabel("Kopfgroesse in Int");
         headSize =  new JTextField(5);
         headSize.setActionCommand(Commands.KOPFRADIUS_CHANGE);
@@ -58,6 +58,13 @@ public class ButtonPanel extends JPanel{
         smile.addActionListener(controler);
         happy.addActionListener(controler);
         sad.addActionListener(controler);
+
+        headSize.addActionListener(ep);
+        rechts.addActionListener(ep);
+        links.addActionListener(ep);
+        smile.addActionListener(ep);
+        happy.addActionListener(ep);
+        sad.addActionListener(ep);
 
         setLayout(new GridLayout(8, 0));
         add(label);

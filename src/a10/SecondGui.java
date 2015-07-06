@@ -1,16 +1,19 @@
 package a10;
 
 import a08.SmileyModel;
+import a09.AAPCEventPrinter;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class SecondGui {
     public static void main(String[] args) {
-        int radius=500;
-        SmileyModel test = new SmileyModel(radius, true);
+        int size=300;
+        SmileyModel test = new SmileyModel(size, true);
         View view = new View(test);
-        ButtonPanel bp = new ButtonPanel(new Controler(test));
+        AAPCEventPrinter aapc = new AAPCEventPrinter();
+        test.addPropertyChangeListener(aapc);
+        ButtonPanel bp = new ButtonPanel(new Controler(test), new EventPrinter());
         JFrame frame = new JFrame("Smiley of DOOM!!!");
         Container container = frame.getContentPane();
         container.setLayout(new BorderLayout());
