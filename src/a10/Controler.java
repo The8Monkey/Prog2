@@ -34,8 +34,11 @@ public class Controler implements ActionListener{
                     number = 0;
                     break;
                 }
-                if(number < 150 || number >2000){
-                    model.setSize(model.getRadius()*2);
+                if(number < 150){
+                    model.setSize(150*2);
+                }
+                else if(number >2000){
+                    model.setSize(2000*2);
                 }else{
                     model.setSize(number*2);
                 }
