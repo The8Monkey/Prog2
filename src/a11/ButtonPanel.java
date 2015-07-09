@@ -13,7 +13,7 @@ public class ButtonPanel extends JPanel{
     protected JButton happy;
     protected JButton sad;
 
-    public ButtonPanel(Controler controler, a11.EventPrinter ep){
+    public ButtonPanel(Controler controler, EventPrinter ep){
         label = new JLabel("Kopfgroesse in Int");
         headSize =  new JTextField(5);
         headSize.setActionCommand(Commands.KOPFRADIUS_CHANGE.toString());

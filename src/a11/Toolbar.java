@@ -1,4 +1,8 @@
 package a11;
 
-public class Toolbar {
+import com.sun.deploy.panel.JavaPanel;
+
+public class Toolbar extends JavaPanel{
+
+
 }

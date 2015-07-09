@@ -9,18 +9,20 @@ import java.awt.*;
 public class SecondGui {
     public static void main(String[] args) {
         int size=300;
-        SmileyModel test = new SmileyModel(size, true);
-        View view = new View(test);
+        SmileyModel model = new SmileyModel(size, true);
+        View view = new View(model);
         AAPCEventPrinter aapc = new AAPCEventPrinter();
-        test.addPropertyChangeListener(aapc);
-        ButtonPanel bp = new ButtonPanel(new Controler(test), new EventPrinter());
+        model.addPropertyChangeListener(aapc);
+        Controler con = new Controler(model);
+        ButtonPanel bp = new ButtonPanel(con, new EventPrinter());
         JFrame frame = new JFrame("Smiley of DOOM!!!");
         Container container = frame.getContentPane();
         container.setLayout(new BorderLayout());
         container.add(view, BorderLayout.CENTER);
         container.add(bp, BorderLayout.WEST);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1200,1000);
+        frame.setJMenuBar(new Menu(con));
+        frame.setSize(800,600);
         frame.setVisible(true);
     }
 }
