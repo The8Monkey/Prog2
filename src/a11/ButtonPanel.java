@@ -1,4 +1,4 @@
-package a10;
+package a11;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,28 +13,28 @@ public class ButtonPanel extends JPanel{
     protected JButton happy;
     protected JButton sad;
 
-    public ButtonPanel(Controler controler, EventPrinter ep){
+    public ButtonPanel(Controler controler, a11.EventPrinter ep){
         label = new JLabel("Kopfgroesse in Int");
         headSize =  new JTextField(5);
-        headSize.setActionCommand(Commands.KOPFRADIUS_CHANGE);
+        headSize.setActionCommand(Commands.KOPFRADIUS_CHANGE.toString());
         rechts =  new JButton("Augen rollen rechtsrum");
-        rechts.setActionCommand(Commands.AUGENROLLEN_RECHTS);
+        rechts.setActionCommand(Commands.AUGENROLLEN_RECHTS.toString());
         links =  new JButton("Augen rollen linksrum");
-        links.setActionCommand(Commands.AUGENROLLEN_LINKS);
+        links.setActionCommand(Commands.AUGENROLLEN_LINKS.toString());
         stop= new JButton("Stop Augen");
         smile =  new JCheckBox("Laecheln");
-        smile.setActionCommand(Commands.SMILE_CHANGE);
+        smile.setActionCommand(Commands.SMILE_CHANGE.toString());
         happy = new JButton("Zufrieden");
-        happy.setActionCommand(Commands.HAPPY);
+        happy.setActionCommand(Commands.HAPPY.toString());
         sad = new JButton("Traurig");
-        sad.setActionCommand(Commands.SAD);
+        sad.setActionCommand(Commands.SAD.toString());
 
         Timer leftTurn =new Timer(0,controler);
-        leftTurn.setActionCommand(Commands.AUGENROLLEN_LINKS);
+        leftTurn.setActionCommand(Commands.AUGENROLLEN_LINKS.toString());
         leftTurn.setDelay(20);
 
         Timer rightTurn =new Timer(0,controler);
-        rightTurn.setActionCommand(Commands.AUGENROLLEN_RECHTS);
+        rightTurn.setActionCommand(Commands.AUGENROLLEN_RECHTS.toString());
         rightTurn.setDelay(20);
 
         links.addActionListener(e -> {

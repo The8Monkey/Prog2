@@ -1,4 +1,4 @@
-package a10;
+package a11;
 
 import a08.SmileyModel;
 
@@ -20,8 +20,9 @@ public class Controler implements ActionListener{
     }
 
     public void actionPerformed(ActionEvent e) {
-        switch (e.getActionCommand()) {
-            case Commands.KOPFRADIUS_CHANGE:
+        Commands c = Commands.valueOf(e.getActionCommand());
+        switch (c) {
+            case KOPFRADIUS_CHANGE:
                 jtf= (JTextField) e.getSource();
                 text = jtf.getText();
                 if (text.isEmpty()){
@@ -44,24 +45,24 @@ public class Controler implements ActionListener{
                 }
                 eyeSize=model.getEyeRad();
                 break;
-            case Commands.AUGENROLLEN_RECHTS:
+            case AUGENROLLEN_RECHTS:
                 rollright=true;
                 model.setRoll(true);
                 model.rotateEye(model.getEyeAngel()+10);
                 break;
-            case Commands.AUGENROLLEN_LINKS:
+            case AUGENROLLEN_LINKS:
                 rollright=false;
                 model.setRoll(false);
                 model.rotateEye(model.getEyeAngel() + 10);
                 break;
-            case Commands.SMILE_CHANGE:
+            case SMILE_CHANGE:
                 model.changeSmile();
                 break;
-            case Commands.HAPPY:
+            case HAPPY:
                 model.setSmile(true);
                 model.setEyeRad(eyeSize+15);
                 break;
-            case Commands.SAD:
+            case SAD:
                 model.setSmile(false);
                 model.setEyeRad(eyeSize-15);
                 break;
