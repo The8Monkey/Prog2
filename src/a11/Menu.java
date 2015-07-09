@@ -4,13 +4,11 @@ package a11;
 import javax.swing.*;
 
 public class Menu extends JMenuBar {
-    JMenuBar menuBar;
-    JMenu menu;
-    JMenuItem menuItem;
-    JCheckBoxMenuItem cbMenuItem;
+    protected JMenu menu;
+    protected JMenuItem menuItem;
+    protected JCheckBoxMenuItem cbMenuItem;
 
     public Menu(Controler con){
-        menuBar = new JMenuBar();
         menu = new JMenu("Settings");
         menuItem = new JMenuItem("Augen rollen rechtsrum");
         menuItem.setActionCommand(Commands.AUGENROLLEN_RECHTS.toString());
@@ -40,6 +38,6 @@ public class Menu extends JMenuBar {
         menuItem.setActionCommand(Commands.SAD.toString());
         menuItem.addActionListener(con);
         menu.add(menuItem);
-        menuBar.add(menu);
+        add(menu);
     }
 }

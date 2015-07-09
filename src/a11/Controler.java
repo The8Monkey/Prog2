@@ -66,6 +66,22 @@ public class Controler implements ActionListener{
                 model.setSmile(false);
                 model.setEyeRad(eyeSize-15);
                 break;
+            case PLUS:
+                if(model.getRadius()+10 >2000){
+                    model.setSize(2000*2);
+                }else{
+                    model.setSize((model.getRadius()+10)*2);
+                }
+                eyeSize=model.getEyeRad();
+                break;
+            case MINUS:
+                if(model.getRadius()-10 <150){
+                    model.setSize(150*2);
+                }else{
+                    model.setSize((model.getRadius()-10)*2);
+                }
+                eyeSize=model.getEyeRad();
+                break;
         }
     }
 }

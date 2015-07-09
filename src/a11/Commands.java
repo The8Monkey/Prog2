@@ -6,7 +6,9 @@ public enum Commands{
     AUGENROLLEN_LINKS,
     SMILE_CHANGE,
     HAPPY,
-    SAD
+    SAD,
+    PLUS,
+    MINUS
 }
 
 /*public class Commands{

@@ -20,6 +20,7 @@ public class SecondGui {
         container.setLayout(new BorderLayout());
         container.add(view, BorderLayout.CENTER);
         container.add(bp, BorderLayout.WEST);
+        container.add(new Toolbar(con),BorderLayout.EAST);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setJMenuBar(new Menu(con));
         frame.setSize(800,600);
