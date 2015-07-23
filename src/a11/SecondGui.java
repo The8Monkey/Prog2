@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 public class SecondGui {
     public static void main(String[] args) {
         int size=300;
-        ResourceBundle rb = ResourceBundle.getBundle("text",new Locale("de"));
+        ResourceBundle rb = ResourceBundle.getBundle("text",new Locale("sp"));
         SmileyModel model = new SmileyModel(size, true);
         View view = new View(model);
         AAPCEventPrinter aapc = new AAPCEventPrinter();

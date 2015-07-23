@@ -14,7 +14,7 @@ public class Maze {
 		char[][] maze = new char[mazeSize[0]][mazeSize[1]];
 		maze=getMaze(maze, path);
 //		printMaze(maze);
-		if(canExit(maze,0,0,mazeSize[0],mazeSize[1])==true){
+		if(canExit(maze,0,0,mazeSize[0],mazeSize[1])){
 			System.out.println("Can exit maze!");
 		}
 	}
