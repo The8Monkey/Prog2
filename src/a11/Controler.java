@@ -13,6 +13,7 @@ public class Controler implements ActionListener{
     protected JTextField jtf;
     protected String text;
     protected int number;
+    
     public Controler(SmileyModel model){
         this.model=model;
         eyeSize=model.getEyeRad();
